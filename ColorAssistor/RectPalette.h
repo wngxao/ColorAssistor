@@ -7,8 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
 @interface RectPalette : NSControl
 @property (nonatomic) NSColor* mainColor;
 @property (nonatomic) NSColor* color;
+-(NSColor*)setColor2:(NSColor*)c;
 @end

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		F45508E31EE0017F00BBD592 /* RectPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = F45508E21EE0017F00BBD592 /* RectPalette.m */; };
+		F46312EC1EE1CB1700EC2EDB /* ColorTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F46312EB1EE1CB1700EC2EDB /* ColorTextField.m */; };
+		F46312F21EE2B97300EC2EDB /* RGBValTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F46312F11EE2B97300EC2EDB /* RGBValTextField.m */; };
+		F46312F51EE40BDD00EC2EDB /* ImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F46312F41EE40BDD00EC2EDB /* ImageButton.m */; };
+		F46312F81EE52F3400EC2EDB /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F46312F71EE52F3400EC2EDB /* ColorPickerViewController.m */; };
 		F482050A1EDF36020062A672 /* SPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48205091EDF36020062A672 /* SPViewController.m */; };
 		F482050F1EDFD15F0062A672 /* HBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F482050E1EDFD15F0062A672 /* HBar.m */; };
 		F4F9AED81EDD503A00D24D4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F9AED71EDD503A00D24D4A /* AppDelegate.m */; };
@@ -16,7 +20,6 @@
 		F4F9AEE31EDD503A00D24D4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F9AEE11EDD503A00D24D4A /* Main.storyboard */; };
 		F4F9AEEE1EDD503A00D24D4A /* ColorAssistorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F9AEED1EDD503A00D24D4A /* ColorAssistorTests.m */; };
 		F4F9AEF91EDD503A00D24D4A /* ColorAssistorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F9AEF81EDD503A00D24D4A /* ColorAssistorUITests.m */; };
-		F4F9AF081EDD5D7E00D24D4A /* RPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = F4F9AF071EDD5D7E00D24D4A /* RPalette.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,14 @@
 /* Begin PBXFileReference section */
 		F45508E11EE0017F00BBD592 /* RectPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectPalette.h; sourceTree = "<group>"; };
 		F45508E21EE0017F00BBD592 /* RectPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectPalette.m; sourceTree = "<group>"; };
+		F46312EA1EE1CB1700EC2EDB /* ColorTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorTextField.h; sourceTree = "<group>"; };
+		F46312EB1EE1CB1700EC2EDB /* ColorTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorTextField.m; sourceTree = "<group>"; };
+		F46312F01EE2B97300EC2EDB /* RGBValTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGBValTextField.h; sourceTree = "<group>"; };
+		F46312F11EE2B97300EC2EDB /* RGBValTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGBValTextField.m; sourceTree = "<group>"; };
+		F46312F31EE40BDD00EC2EDB /* ImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageButton.h; sourceTree = "<group>"; };
+		F46312F41EE40BDD00EC2EDB /* ImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageButton.m; sourceTree = "<group>"; };
+		F46312F61EE52F3400EC2EDB /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerViewController.h; sourceTree = "<group>"; };
+		F46312F71EE52F3400EC2EDB /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerViewController.m; sourceTree = "<group>"; };
 		F48205081EDF36020062A672 /* SPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPViewController.h; sourceTree = "<group>"; };
 		F48205091EDF36020062A672 /* SPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPViewController.m; sourceTree = "<group>"; };
 		F482050D1EDFD15F0062A672 /* HBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBar.h; sourceTree = "<group>"; };
@@ -56,8 +67,6 @@
 		F4F9AEF41EDD503A00D24D4A /* ColorAssistorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorAssistorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F9AEF81EDD503A00D24D4A /* ColorAssistorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorAssistorUITests.m; sourceTree = "<group>"; };
 		F4F9AEFA1EDD503A00D24D4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4F9AF061EDD5D7E00D24D4A /* RPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPalette.h; sourceTree = "<group>"; };
-		F4F9AF071EDD5D7E00D24D4A /* RPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPalette.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +118,12 @@
 			isa = PBXGroup;
 			children = (
 				F4F9AED61EDD503A00D24D4A /* AppDelegate.h */,
+				F46312F61EE52F3400EC2EDB /* ColorPickerViewController.h */,
+				F46312F71EE52F3400EC2EDB /* ColorPickerViewController.m */,
+				F46312F01EE2B97300EC2EDB /* RGBValTextField.h */,
+				F46312F11EE2B97300EC2EDB /* RGBValTextField.m */,
+				F46312EA1EE1CB1700EC2EDB /* ColorTextField.h */,
+				F46312EB1EE1CB1700EC2EDB /* ColorTextField.m */,
 				F45508E11EE0017F00BBD592 /* RectPalette.h */,
 				F45508E21EE0017F00BBD592 /* RectPalette.m */,
 				F4F9AED71EDD503A00D24D4A /* AppDelegate.m */,
@@ -117,10 +132,10 @@
 				F482050E1EDFD15F0062A672 /* HBar.m */,
 				F4F9AEE41EDD503A00D24D4A /* Info.plist */,
 				F4F9AEE11EDD503A00D24D4A /* Main.storyboard */,
-				F4F9AF061EDD5D7E00D24D4A /* RPalette.h */,
-				F4F9AF071EDD5D7E00D24D4A /* RPalette.m */,
 				F48205081EDF36020062A672 /* SPViewController.h */,
 				F48205091EDF36020062A672 /* SPViewController.m */,
+				F46312F31EE40BDD00EC2EDB /* ImageButton.h */,
+				F46312F41EE40BDD00EC2EDB /* ImageButton.m */,
 				F4F9AED91EDD503A00D24D4A /* Supporting Files */,
 			);
 			path = ColorAssistor;
@@ -284,12 +299,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F46312F81EE52F3400EC2EDB /* ColorPickerViewController.m in Sources */,
+				F46312EC1EE1CB1700EC2EDB /* ColorTextField.m in Sources */,
 				F482050A1EDF36020062A672 /* SPViewController.m in Sources */,
+				F46312F21EE2B97300EC2EDB /* RGBValTextField.m in Sources */,
 				F482050F1EDFD15F0062A672 /* HBar.m in Sources */,
 				F45508E31EE0017F00BBD592 /* RectPalette.m in Sources */,
 				F4F9AEDB1EDD503A00D24D4A /* main.m in Sources */,
-				F4F9AF081EDD5D7E00D24D4A /* RPalette.m in Sources */,
 				F4F9AED81EDD503A00D24D4A /* AppDelegate.m in Sources */,
+				F46312F51EE40BDD00EC2EDB /* ImageButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,7 +25,6 @@
     CGContextDrawImage(ctx, CGRectMake(BORD_WIDTH, BORD_WIDTH, self.frame.size.width-BORD_WIDTH, self.frame.size.height-BORD_WIDTH), image);
     CGContextSetShouldAntialias(ctx, true);
     CGContextAddEllipseInRect(ctx, CGRectMake(point.x- CICLE_SIZE/2, point.y-CICLE_SIZE/2, 10, 10));
-    NSLog(@"color:%f",_color.redComponent+_color.greenComponent+_color.blueComponent);
     if(_color.redComponent+_color.greenComponent+_color.blueComponent>=1.5){
         CGContextSetStrokeColorWithColor(ctx, [NSColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1].CGColor);
     }else{
@@ -70,11 +69,42 @@
     }
     CGColorSpaceRelease(colorSpace);
 }
+-(NSColor*)setColor2:(NSColor*)c{
+    CGFloat r=c.redComponent,g=c.greenComponent,b=c.blueComponent;
+    CGFloat max=r>g?(r>b?r:b):(g>b?g:b),min=r>g?(g<b?g:b):(r>b?b:r),mid=r>b?(b>g?b:(r>g?g:r)):(b<g?b:(r>g?r:g));
+    // (mid-max*x)/(max-max*x)=min/max
+    // min-min*x=mid-max*x x=(mid-min)/(max-min)
+    CGFloat w=self.frame.size.width-2*BORD_WIDTH,h=self.frame.size.height-2*BORD_WIDTH;
+    if(max==min){
+        point.x=BORD_WIDTH;
+        point.y=BORD_WIDTH+min*h;
+        [self setColor:c];
+        return [NSColor colorWithRed:_mainColor.redComponent green:_mainColor.greenComponent blue:_mainColor.blueComponent alpha:1];
+    }
+    CGFloat mmax=1,mmid=(mid-min)/(max-min),mmin=0;
+    point.y=max*h+BORD_WIDTH;
+    point.x=w-min/max*w+BORD_WIDTH;
+    [self setColor:c];
+    NSColor *mColor;
+    if(r==max&&g==min){
+        mColor = [NSColor colorWithRed:mmax green:mmin blue:mmid alpha:1];
+    }else if(r==max&&b==min){
+        mColor = [NSColor colorWithRed:mmax green:mmid blue:mmin alpha:1];
+    }else if(g==max&&b==min){
+        mColor = [NSColor colorWithRed:mmid green:mmax blue:mmin alpha:1];
+    }else if(g==max&&r==min){
+        mColor = [NSColor colorWithRed:mmin green:mmax blue:mmid alpha:1];
+    }else if(b==max&&r==min){
+        mColor = [NSColor colorWithRed:mmin green:mmid blue:mmax alpha:1];
+    }else{
+        mColor = [NSColor colorWithRed:mmid green:mmin blue:mmax alpha:1];
+    }
+    return mColor;
+}
 -(void)setMainColor:(NSColor *)color{
     if(_mainColor!=color){
         _mainColor=color;
         [self redraw];
-        NSLog(@"RectPalette#setMainColor:%@",color);
         if(!_color){
             point = NSMakePoint(self.frame.size.width-BORD_WIDTH, self.frame.size.height-BORD_WIDTH);
         }
@@ -86,11 +116,7 @@
     if(_color!=color){
         _color=color;
         [self setNeedsDisplay];
-        NSLog(@"RectPalette#setColor:%@",color);
     }
-}
--(void)dealloc{
-    NSLog(@"rect palette dealloc");
 }
 -(void)mouseUp:(NSEvent *)event{
     [self mouseDragged:event];
@@ -113,21 +139,21 @@
     if(point.x>self.frame.size.width-BORD_WIDTH)point.x=self.frame.size.width-BORD_WIDTH;
     NSColor *color=[self colorOfPoint:point];
     [self setColor:color];
+    [self.window makeFirstResponder:self];
+    [super mouseDown:event];
 }
 -(id)colorOfPoint:(NSPoint)pt{
-    CGFloat x=pt.x-BORD_WIDTH,y=pt.y-BORD_WIDTH;
-    CGFloat w=self.frame.size.width-2*BORD_WIDTH,h=self.frame.size.height-2*BORD_WIDTH;
+    CGFloat x=pt.x-BORD_WIDTH,y=pt.y-BORD_WIDTH;    CGFloat w=self.frame.size.width-2*BORD_WIDTH,h=self.frame.size.height-2*BORD_WIDTH;
     NSColor* color;
-    int r=_mainColor.redComponent*255,g=_mainColor.greenComponent*255,b=_mainColor.blueComponent*255;
-    float mR=r-(h-y)*r/h;
-    float mG=g-(h-y)*g/h;
-    float mB=b-(h-y)*b/h;
-    float mMax=mR>=mG&&mR>=mB?mR:(mG>=mR&&mG>=mB?mG:mB);
+    CGFloat r=_mainColor.redComponent,g=_mainColor.greenComponent,b=_mainColor.blueComponent;
+    CGFloat mR=r-(h-y)*r/h;
+    CGFloat mG=g-(h-y)*g/h;
+    CGFloat mB=b-(h-y)*b/h;
+    CGFloat mMax=mR>=mG&&mR>=mB?mR:(mG>=mR&&mG>=mB?mG:mB);
     mR=mR+(w-x)*(mMax-mR)/w;
     mG=mG+(w-x)*(mMax-mG)/w;
     mB=mB+(w-x)*(mMax-mB)/w;
-    color=[NSColor colorWithRed:mR/255 green:mG/255 blue:mB/255 alpha:1];
+    color=[NSColor colorWithRed:mR green:mG blue:mB alpha:1];
     return color;
 }
-
 @end

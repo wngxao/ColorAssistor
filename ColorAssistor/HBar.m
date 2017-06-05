@@ -114,6 +114,8 @@ CGFloat mY=ARROW_SIZE/2;
     }
     NSColor *color=[self colorOfPoint:point];
     [self setColor:color];
+    [self.window makeFirstResponder:self];
+    [super mouseDown:event];
 }
 -(id)colorOfPoint:(NSPoint)point{
     CGFloat y=point.y-ARROW_SIZE/2;
@@ -136,10 +138,29 @@ CGFloat mY=ARROW_SIZE/2;
     }
     return color;
 }
+-(NSPoint)pointOfColor:(NSColor*)c{
+    NSPoint point;
+    CGFloat h=self.frame.size.height-ARROW_SIZE;
+    point.x=0;
+    if(c.redComponent==1&&c.blueComponent==0){
+        point.y=ARROW_SIZE/2+h/6*c.greenComponent;
+    }else if(c.greenComponent==1&&c.blueComponent==0){
+        point.y=ARROW_SIZE/2+h/3-h/6*c.redComponent;
+    }else if(c.greenComponent==1&&c.redComponent==0){
+        point.y=ARROW_SIZE/2+h/3+h/6*c.blueComponent;
+    }else if(c.blueComponent==1&&c.redComponent==0){
+        point.y=ARROW_SIZE/2+h*2/3-h/6*c.greenComponent;
+    }else if(c.blueComponent==1&&c.greenComponent==0){
+        point.y=ARROW_SIZE/2+h*2/3+h/6*c.redComponent;
+    }else{
+        point.y=ARROW_SIZE/2+h-h/6*c.blueComponent;
+    }
+    return point;
+}
 -(void)setColor:(NSColor *)color{
     if(_color!=color){
         _color=color;
-        NSLog(@"HBar#setColor:%@",color);
+        mY = [self pointOfColor:color].y;
         [self setNeedsDisplay];
     }
 }

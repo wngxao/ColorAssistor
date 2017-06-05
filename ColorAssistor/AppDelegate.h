@@ -9,5 +9,9 @@
 #import <Cocoa/Cocoa.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
+@property (strong) NSStatusItem *statusItem;
+@property (strong) NSPopover *popover;
+@property (strong) NSEvent *monitor;
+@property (strong) NSStoryboard *storyboard;
 @end
 
